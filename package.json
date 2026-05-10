@@ -1,0 +1,12 @@
+{
+  "name": "bem-connect",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev",
+    "dev": "concurrently \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  }
+}
