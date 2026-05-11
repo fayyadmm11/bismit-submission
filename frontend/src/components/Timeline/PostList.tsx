@@ -1,28 +1,19 @@
-import { useState, useEffect } from 'react'
-import PostCard from './PostCard'
-import { mockPosts } from '../../data/mockPosts'
-import type { Post } from '../../types'
+import type { Post } from "../../types";
+import PostCard from "./PostCard";
 
-const PostList = () => {
-  const [posts, setPosts] = useState<Post[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+interface PostListProps {
+  posts: Post[];
+}
 
-  useEffect(() => {
-    // Simulasi loading seperti real API fetch
-    const timer = setTimeout(() => {
-      setPosts(mockPosts)
-      setIsLoading(false)
-    }, 500)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (isLoading) {
+const PostList = ({ posts }: PostListProps) => {
+  if (posts.length === 0) {
     return (
-      <div className="flex justify-center items-center py-20">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500" />
+      <div className="text-center py-20">
+        <p className="text-slate-400 text-sm">
+          Belum ada postingan. Jadilah yang pertama!
+        </p>
       </div>
-    )
+    );
   }
 
   return (
@@ -31,7 +22,7 @@ const PostList = () => {
         <PostCard key={post.id} post={post} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default PostList
+export default PostList;
