@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import PostList from "../components/Timeline/PostList";
-import CreatePost from "../components/Timeline/CreatePost";
+import PostList from "../components/Feed/PostList";
+import CreatePost from "../components/Feed/CreatePost";
 import { postService } from "../services/postService";
 import { useAuth } from "../hooks/useAuth";
 import type { Post } from "../types";

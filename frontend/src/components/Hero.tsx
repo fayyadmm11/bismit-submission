@@ -17,8 +17,11 @@ const Hero = () => {
 
         <p className="mt-4 max-w-2xl text-lg md:text-xl text-slate-300 mx-auto mb-10 leading-relaxed">
           Platform khusus untuk ngepost hal hal seru di BEM seperti kegiatan,
-          pengumuman, sampai momen kebersamaan. Terhubung lebih dekat,
-          berkolaborasi lebih cepat!
+          pengumuman, sampai momen kebersamaan.
+          <br />
+          <span className="font-bold">
+            Terhubung lebih dekat, berkolaborasi lebih cepat!
+          </span>
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -31,7 +34,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

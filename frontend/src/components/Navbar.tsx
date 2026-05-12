@@ -89,7 +89,7 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="relative flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
@@ -98,11 +98,11 @@ const Navbar = () => {
             Bem Connect
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6">
-            {/* Nav items — rose pill, hilang saat leave */}
+          {/* Desktop Menu (center nav + right auth) */}
+          <div className="hidden md:flex items-center">
+            {/* Nav items — rose pill, di tengah */}
             <div
-              className="flex items-center gap-1 relative"
+              className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1"
               onMouseLeave={handleNavLeave}
             >
               <span
@@ -132,49 +132,50 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Auth section */}
-            {user ? (
-              <div className="flex items-center gap-3">
-                <span className="text-sm text-slate-300">
-                  👋{" "}
-                  <span className="font-semibold text-white">
-                    {user.username}
+            {/* Auth section — tetap di kanan */}
+            <div className="ml-auto flex items-center gap-6">
+              {user ? (
+                <div className="flex items-center gap-5">
+                  <span className="text-sm text-slate-300">
+                    <span className="font-semibold text-white">
+                      Halo, {user.username}!
+                    </span>
                   </span>
-                </span>
-                <button
-                  onClick={handleLogout}
-                  className="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all"
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              /* Auth items — blue pill persisten */
-              <div className="flex items-center gap-1 relative">
-                <span
-                  className="absolute top-1/2 -translate-y-1/2 h-9 bg-blue-600 rounded-full pointer-events-none transition-all duration-300 ease-out shadow-[0_0_15px_rgba(37,99,235,0.4)]"
-                  style={{
-                    left: authPill.left,
-                    width: authPill.width,
-                  }}
-                />
-                {(["Masuk", "Daftar"] as const).map((label, index) => (
                   <button
-                    key={label}
-                    ref={(el) => {
-                      authRefs.current[index] = el;
-                    }}
-                    onMouseEnter={() => handleAuthEnter(index)}
-                    onClick={() =>
-                      navigate(index === 0 ? "/login" : "/register")
-                    }
-                    className="relative z-10 px-4 py-2 text-sm font-medium text-white rounded-full cursor-pointer"
+                    onClick={handleLogout}
+                    className="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-all"
                   >
-                    {label}
+                    Logout
                   </button>
-                ))}
-              </div>
-            )}
+                </div>
+              ) : (
+                /* Auth items — blue pill persisten */
+                <div className="flex items-center gap-1 relative">
+                  <span
+                    className="absolute top-1/2 -translate-y-1/2 h-9 bg-blue-600 rounded-full pointer-events-none transition-all duration-300 ease-out shadow-[0_0_15px_rgba(37,99,235,0.4)]"
+                    style={{
+                      left: authPill.left,
+                      width: authPill.width,
+                    }}
+                  />
+                  {(["Masuk", "Daftar"] as const).map((label, index) => (
+                    <button
+                      key={label}
+                      ref={(el) => {
+                        authRefs.current[index] = el;
+                      }}
+                      onMouseEnter={() => handleAuthEnter(index)}
+                      onClick={() =>
+                        navigate(index === 0 ? "/login" : "/register")
+                      }
+                      className="relative z-10 px-4 py-2 text-sm font-medium text-white rounded-full cursor-pointer"
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}

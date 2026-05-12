@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import LandingPage from "./pages/LandingPage";
-import TimelinePage from "./pages/TimelinePage";
+import TimelinePage from "./pages/FeedPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
