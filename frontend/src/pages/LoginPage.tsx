@@ -26,7 +26,7 @@ const LoginPage = () => {
       setIsLoading(true);
       const res = await authService.login({ email, password });
       login(res.token, res.user);
-      navigate("/timeline");
+      navigate("/feed");
     } catch (err: unknown) {
       const message = (err as { response?: { data?: { message?: string } } })
         ?.response?.data?.message;

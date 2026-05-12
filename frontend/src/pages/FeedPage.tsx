@@ -7,7 +7,7 @@ import { postService } from "../services/postService";
 import { useAuth } from "../hooks/useAuth";
 import type { Post } from "../types";
 
-const TimelinePage = () => {
+const FeedPage = () => {
   const { user } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -36,7 +36,7 @@ const TimelinePage = () => {
       <Navbar />
       <main className="flex-grow max-w-3xl mx-auto w-full px-4 sm:px-6 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Timeline</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Feed</h1>
           <p className="text-slate-400">
             Lihat update terbaru dari teman-teman BEM kamu.
           </p>
@@ -76,4 +76,4 @@ const TimelinePage = () => {
   );
 };
 
-export default TimelinePage;
+export default FeedPage;

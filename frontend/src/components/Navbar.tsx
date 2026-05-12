@@ -11,7 +11,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: "Beranda", sectionId: "beranda" },
   { label: "Fitur", sectionId: "fitur" },
-  { label: "Timeline", to: "/timeline" },
+  { label: "Feed", to: "/feed" },
   { label: "Kontak", sectionId: "kontak" },
 ];
 
