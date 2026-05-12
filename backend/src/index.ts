@@ -6,6 +6,7 @@ import pool from "./config/db";
 import authRoutes from "./routes/authRoutes";
 import postRoutes from "./routes/postRoutes";
 import userRoutes from "./routes/userRoutes";
+import { setupSwagger } from "./config/swagger";
 
 dotenv.config();
 
@@ -26,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
+
+// ── Swagger ─────────────────────────────────────────────
+setupSwagger(app);
 
 // Health check
 app.get("/api/health", (_req, res) => {

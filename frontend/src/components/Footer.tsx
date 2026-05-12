@@ -15,8 +15,8 @@ const Footer = () => {
               Bem Connect
             </h2>
             <p className="text-slate-400 max-w-[500px]">
-              Membangun koneksi, membagikan momen, dan mempermudah kolaborasi
-              untuk seluruh pengurus BEM.
+              Membangun koneksi, membagikan momen, dan <br />
+              mempermudah kolaborasi untuk seluruh pengurus BEM.
             </p>
           </div>
 
@@ -27,10 +27,10 @@ const Footer = () => {
             </h3>
             <div className="space-y-3 text-slate-300">
               <p className="flex items-center md:justify-end gap-2">
-                <span className="text-rose-400">CP:</span> Nanda
+                CP: Nanda
               </p>
               <p className="flex items-center md:justify-end gap-2">
-                <span className="text-blue-400">ID LINE:</span> 16273551
+                ID LINE: 16273551
               </p>
             </div>
           </div>
@@ -38,7 +38,8 @@ const Footer = () => {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm text-center md:text-left">
-            &copy; {new Date().getFullYear()} Built with react router + tailwind.
+            &copy; {new Date().getFullYear()} Built with react router +
+            tailwind.
           </p>
           <div className="flex gap-4 text-sm text-slate-500">
             <a href="#" className="hover:text-blue-400 transition-colors">
@@ -51,7 +52,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
